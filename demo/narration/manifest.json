@@ -1,0 +1,26 @@
+{
+  "fps": 30,
+  "segments": [
+    { "id": "01_hook",         "sequence": "story", "role": "beat", "beatIndex": 0, "script": "01_hook.txt" },
+    { "id": "02_agents",       "sequence": "story", "role": "beat", "beatIndex": 1, "script": "02_stars.txt" },
+    { "id": "03_capabilities", "sequence": "story", "role": "beat", "beatIndex": 2, "script": "03_capabilities.txt" },
+    { "id": "04_gap",          "sequence": "story", "role": "beat", "beatIndex": 3, "script": "04_gap.txt" },
+    { "id": "05_reveal",       "sequence": "story", "role": "beat", "beatIndex": 4, "script": "05_silence.txt" },
+    { "id": "06_tagline",      "sequence": "story", "role": "beat", "beatIndex": 5, "script": "06_reveal.txt" },
+    { "id": "07_engine",       "sequence": "tech",  "role": "beat", "beatIndex": 0, "script": "08_engine.txt" },
+    { "id": "08_backends",     "sequence": "tech",  "role": "beat", "beatIndex": 1, "script": "09_backends.txt" },
+    { "id": "09_one_command",  "sequence": "tech",  "role": "beat", "beatIndex": 2, "script": "10_one_command.txt" },
+    { "id": "10_ready",        "sequence": "tech",  "role": "beat", "beatIndex": 3, "script": "11_ready.txt" },
+    { "id": "11_voice_cloning","sequence": "features", "role": "beat", "beatIndex": 0, "script": "12_voice_cloning.txt" },
+    { "id": "12_streaming",    "sequence": "features", "role": "beat", "beatIndex": 1, "script": "13_streaming.txt" },
+    { "id": "13_model_sizes",  "sequence": "features", "role": "beat", "beatIndex": 2, "script": "14_model_sizes.txt" },
+    { "id": "14_scriptable",   "sequence": "features", "role": "beat", "beatIndex": 3, "script": "15_scriptable.txt" },
+    { "id": "15_export",       "sequence": "features", "role": "beat", "beatIndex": 4, "script": "16_export.txt" },
+    { "id": "16_apple_silicon","sequence": "features", "role": "beat", "beatIndex": 5, "script": "17_apple_silicon.txt" },
+    { "id": "17_demo_say",     "sequence": "demo",  "role": "beat", "beatIndex": 0, "script": "18_demo_say.txt" },
+    { "id": "18_demo_generate","sequence": "demo",  "role": "beat", "beatIndex": 1, "script": "19_demo_generate.txt" },
+    { "id": "19_demo_clone",   "sequence": "demo",  "role": "beat", "beatIndex": 2, "script": "20_demo_clone.txt" },
+    { "id": "20_github_cta",   "sequence": "cta",   "role": "beat", "beatIndex": 0, "script": "21_github_cta.txt" },
+    { "id": "21_star",         "sequence": "cta",   "role": "beat", "beatIndex": 1, "script": "22_star.txt" }
+  ]
+}

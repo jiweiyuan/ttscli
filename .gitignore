@@ -1,0 +1,70 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+*.cover
+
+# Data
+*.db
+*.db-journal
+tts_data/
+
+# Distribution
+dist/
+build/
+*.whl
+
+# Audio output
+*.wav
+*.mp3
+
+# Keep demo intro audio
+!ttscli_intro.wav
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Config (local)
+config.local.toml
+
+# Demo build artifacts
+demo/out/
+demo/intro/node_modules/
+demo/intro/.remotion/

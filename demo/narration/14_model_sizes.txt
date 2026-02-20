@@ -1,0 +1,1 @@
+Two model sizes: one point seven B for quality, zero point six B for speed.
