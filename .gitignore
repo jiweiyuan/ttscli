@@ -54,9 +54,17 @@ build/
 *.wav
 *.mp3
 
+# Keep demo intro audio
+!ttscli_intro.wav
+
 # OS
 .DS_Store
 Thumbs.db
 
 # Config (local)
 config.local.toml
+
+# Demo build artifacts
+demo/out/
+demo/intro/node_modules/
+demo/intro/.remotion/

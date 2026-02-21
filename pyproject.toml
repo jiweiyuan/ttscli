@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "tts-cli"
+name = "ttscli"
 version = "0.1.0"
 description = "Command-line interface for text-to-speech with voice cloning"
 readme = "README.md"
@@ -60,10 +60,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/your-org/ttscli"
-Repository = "https://github.com/your-org/ttscli"
-Issues = "https://github.com/your-org/ttscli/issues"
-Changelog = "https://github.com/your-org/ttscli/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/jiweiyuan/ttscli"
+Repository = "https://github.com/jiweiyuan/ttscli"
+Issues = "https://github.com/jiweiyuan/ttscli/issues"
+Changelog = "https://github.com/jiweiyuan/ttscli/blob/main/CHANGELOG.md"
 
 [project.scripts]
 tts = "ttscli.cli:main"
