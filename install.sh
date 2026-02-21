@@ -7,6 +7,7 @@ set -euo pipefail
 
 REPO="jiweiyuan/ttscli"
 BACKEND=""
+BACKEND_SET=false
 USE_UV=false
 
 # Parse arguments
@@ -14,6 +15,7 @@ while [[ $# -gt 0 ]]; do
     case $1 in
         --backend)
             BACKEND="$2"
+            BACKEND_SET=true
             shift 2
             ;;
         --uv)
@@ -26,9 +28,9 @@ while [[ $# -gt 0 ]]; do
             echo "Usage: curl -fsSL https://raw.githubusercontent.com/${REPO}/main/install.sh | bash"
             echo ""
             echo "Options:"
-            echo "  --backend <mlx|pytorch>   Install with specific backend"
-            echo "  --uv                      Force using uv instead of pipx"
-            echo "  --help                    Show this help"
+            echo "  --backend <mlx|pytorch|none>  Install with specific backend (none = base only)"
+            echo "  --uv                          Force using uv instead of pipx"
+            echo "  --help                        Show this help"
             exit 0
             ;;
         *)
@@ -68,10 +70,16 @@ fi
 
 echo "  Python: ${PYTHON_VERSION}"
 
-# Auto-detect backend for Apple Silicon
-if [[ -z "$BACKEND" && "$OS" == "Darwin" && "$ARCH" == "arm64" ]]; then
+# Auto-detect backend for Apple Silicon (only if user didn't specify)
+if [[ "$BACKEND_SET" == false && "$OS" == "Darwin" && "$ARCH" == "arm64" ]]; then
     info "Apple Silicon detected, defaulting to mlx backend"
+    info "Use --backend none to install without a backend"
     BACKEND="mlx"
+fi
+
+# Handle --backend none
+if [[ "$BACKEND" == "none" ]]; then
+    BACKEND=""
 fi
 
 # Determine package spec
@@ -83,7 +91,7 @@ fi
 # Install using uv, pipx, or pip (in order of preference)
 install_with_uv() {
     info "Installing with uv..."
-    uv tool install "$PACKAGE"
+    uv tool install --prerelease=allow "$PACKAGE"
 }
 
 install_with_pipx() {
