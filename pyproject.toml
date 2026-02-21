@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "ttscli"
-version = "0.1.0"
+version = "0.1.1"
 description = "Command-line interface for text-to-speech with voice cloning"
 readme = "README.md"
 requires-python = ">=3.11"

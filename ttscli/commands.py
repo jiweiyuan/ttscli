@@ -433,26 +433,31 @@ async def _async_say(text, voice, language, model, output, seed, instruct, no_pl
 
     try:
         # Resolve voice
-        voice = voice or settings.default_voice or "default"
-        voice_obj = voices.get_voice(voice)
-        if not voice_obj:
+        voice = voice or settings.default_voice
+        voice_obj = voices.get_voice(voice) if voice else None
+
+        if voice and not voice_obj:
             output_error(f"Voice not found: {voice}\nRun: tts voice add audio.wav", "NOT_FOUND")
             raise typer.Exit(1)
-        if not voice_obj.samples:
+        if voice_obj and not voice_obj.samples:
             output_error(f"Voice '{voice_obj.name}' has no samples.\nRun: tts voice add audio.wav", "NO_SAMPLES")
             raise typer.Exit(1)
 
-        language = language or voice_obj.language
+        language = language or (voice_obj.language if voice_obj else settings.default_language)
 
         # Load model + create voice prompt (single spinner)
         backend = get_tts_backend()
 
         with show_progress("Loading model..."):
             await backend.load_model(model)
-            sample = voice_obj.samples[0]
-            voice_prompt, _ = await backend.create_voice_prompt(
-                sample.audio_path, sample.text, use_cache=True,
-            )
+            if voice_obj and voice_obj.samples:
+                sample = voice_obj.samples[0]
+                voice_prompt, _ = await backend.create_voice_prompt(
+                    sample.audio_path, sample.text, use_cache=True,
+                )
+            else:
+                # Use model's built-in default voice (no reference audio)
+                voice_prompt = {}
 
         # Check sounddevice
         sd = None
